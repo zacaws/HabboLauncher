@@ -18,6 +18,7 @@ namespace HabboLauncher
         public MainFrm(string[] args)
         {
             InitializeComponent();
+            txtCode.KeyDown += txtCode_KeyDown;
             FormClosing += (s, e) => closing = true;
 
             if (args.Length == 1)
