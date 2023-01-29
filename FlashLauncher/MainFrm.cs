@@ -173,6 +173,19 @@ namespace HabboLauncher
             var frmOptions = new FrmOptions();
             frmOptions.ShowDialog();
         }
+        
+        private void txtCode_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control && e.KeyCode == Keys.V)
+            {
+                var clipboardText = Clipboard.GetText();
+                var m = tokenRe.Match(clipboardText);
+                if (m.Success)
+                {
+                    txtCode.Text = clipboardText;
+                }
+            }
+        }
 
         private void MainFrm_Load(object sender, EventArgs e)
         {
